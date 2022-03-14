@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Water Billing</title>
+</head></center>
+<body background="waterBillsPicImage" style="width: 450px; background-color:black; color: white;">
+
+	<fieldset>
+<form name="Form1">
+		<center>
+			<h2 class="tilte">Water Billing System</h2>
+
+		
+		<br>
+<br>
+Name:<input type="text" name="name">
+<br>
+<br>
+Address:<input type="text" name="add">
+<br>
+<br>
+Contact:<input type="number" name="contact">
+<br>
+<br>
+Date: <input type="date" name="date1">
+
+<br>
+<br>
+<div class="content">
+<lebel>CURRENTP READING:</lebel>
+<input class="box"type="number"
+name="current">kwh
+<br>
+<br>
+<label>PREVIOUS READING:</label>
+<input class="box"type="number"
+name="previous">kwh
+<br>
+<br>
+<br>
+<input type="button" value="Cumpute" onclick="billing()" name="">
+<input type="button" onclick="trying()"value="TRY AGAIN"name="">
+
+</div>
+
+<br>
+<br>
+</center>
+</form>
+</fieldset>
+<br><br>
+<br><br>
+<section >
+	
+	<center><fieldset style="width: 400px; background-color:black; color: white;">
+		<form name="Form2">
+		<div>
+			<h1 style="color: white;">Service Information</h1><br>
+			------------------------------------------------------------------------<br>
+			Name: <input type="text" name="vname">
+			<br><br>
+			Address: <input type="address" name="vadd">
+			<br><br>
+			Contact No: <input type="number" name="contact">
+			<br><br>
+			------------------------------------------------------------------------<br><br>
+			<div style="float: left; margin-left: 30px;">Reading Date:</div><div>Reading Val.:</div><br>
+			<input type="text"  name="vdate1">     <input type="number"  name="vcreading">kwh<br><br>
+			<input type="text"  name="vdate2">     <input type="number"  name="vpreading">kwh<br><br>
+
+			Water Consumption:				<input type="text" name="consumption"><br>
+			-------------------------------------------------------------------------<br>
+			Billing Details<br>
+			---------------------------------------------------------------------------<br><br>
+			<div style="float: left;">
+				Amount Due: <input type="text" name="AD"><br><br>
+				After Due: <input type="text" name="ad"><br><br>
+			</div>
+
+
+
+		</div>
+	</form>
+	</fieldset></center>
+
+
+
+</section>
+
+<script type="text/javascript">
+	function billing(){
+	var name = document.Form1.name.value;
+	var address = document.Form1.add.value;
+	var date1 = document.Form1.date1.value;
+	var date2 = document.Form1.date1.value;
+	var contact = document.Form1.contact.value
+	var preading = parseInt(document.Form1.previous.value);
+	var creading = parseInt(document.Form1.current.value);
+	var cons;
+	var total, after, duedate;
+
+	cons = creading - preading;
+	total = cons * 8.90;
+	after = total + 10;
+	duedate = date1 + 10;
+
+	document.Form2.vname.value = name;
+	document.Form2.vadd.value = address;
+	document.Form2.vdate1.value = date1;
+	document.Form2.vdate2.value = date1;
+	document.Form2.contact.value = contact;
+	document.Form2.vcreading.value = creading;
+	document.Form2.vpreading.value = preading;
+	document.Form2.consumption.value = cons;
+	document.Form2.AD.value = total;
+	document.Form2.ad.value = after;
+
+
+
+
+
+}
+</script>
+</body>
+</html>
